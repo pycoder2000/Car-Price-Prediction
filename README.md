@@ -8,9 +8,9 @@ Technique used:
 ---
 ## Information
 
-The template used can be found on [index.html]()  
+The template used can be found on [index.html](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/templates/index.html)  
 
-The dataset used here is very small and can be found at [car data.csv]()
+The dataset used here is very small and can be found at [car data.csv](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/input/car%20data.csv)
 
 ---
 ## Installation
@@ -25,11 +25,11 @@ pip install -U -r requirements.txt
 ---
 ## How to run :
 
-1. run [create_folds.py](https://github.com/JVedant/Car_Price-Prediction/blob/master/src/create_folds.py) from src to create folds in the dataset.
-2. run [encode_data.py](https://github.com/JVedant/Car_Price-Prediction/blob/master/src/encode_data.py) from src to encode the data using pandas dummy method and to select the features.
-3. run [model.py](https://github.com/JVedant/Car_Price-Prediction/blob/master/src/model.py) to train the model and dump it using joblib at [model.pkl](https://github.com/JVedant/Car_Price-Prediction/blob/master/models/DecisionTree/model.pkl)
-    - you can check the [model.pkl](https://github.com/JVedant/Car_Price-Prediction/blob/master/models/model.pkl) also, it is trained on random forest regressor and is shown in [EDA.ipynb](https://github.com/JVedant/Car_Price-Prediction/blob/master/notebooks/EDA.ipynb)
-4. run [app.py](https://github.com/JVedant/Car_Price-Prediction/blob/master/app.py)
+1. run [create_folds.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/create_folds.py) from src to create folds in the dataset.
+2. run [encode_data.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/encode_data.py) from src to encode the data using pandas dummy method and to select the features.
+3. run [model.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/model.py) to train the model and dump it using joblib at [model.pkl](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/models/DecisionTree/model.pkl)
+    - you can check the [model.pkl](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/models/model.pkl) also, it is trained on random forest regressor and is shown in [EDA.ipynb](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/notebooks/EDA.ipynb)
+4. run [app.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/app.py)
 
 
 ## Contributing
