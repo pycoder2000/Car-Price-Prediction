@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Predictive analysis</title>
+      <link rel="stylesheet" href="style/css/styles.css" />
+      <link
+         rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+         crossorigin="anonymous"
+      />
+   </head>
+   <body>
+      <header>
+         <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+               <h1 class="display-4">Predictive analysis</h1>
+               <p class="lead">Desciption of your project</p>
+            </div>
+         </div>
+      </header>
+
+      <section class="container">
+         <form action="{{ url_for('predict')}}" method="post">
+            <div class="form-group">
+               <label for="year">Year</label>
+               <input type="number" class="form-control" name="Year" />
+            </div>
+
+            <div class="form-group">
+               <label for="price"> Showroom Price? (In Lakhs) </label>
+               <input type="number" class="form-control" name="Present_Price" />
+            </div>
+
+            <div class="form-group">
+               <label for="drive">Kilometers Drived?</label>
+               <input type="number" class="form-control" name="Kms_Driven" />
+            </div>
+
+            <div class="form-group">
+               <label for="owners">No. of previous owners? (0 or 3)</label>
+               <input type="number" class="form-control" name="Owner" />
+            </div>
+
+            <!-- radio buttons -->
+            <div class="group1">
+               <label for="">Fuel Type?</label>
+               <br />
+               <div class="form-check form-check-inline">
+                  <input
+                     class="form-check-input"
+                     type="radio"
+                     name="Fuel_Type_Petrol"
+                     id="inlineRadio1"
+                     value="Petrol"
+                  />
+                  <label class="form-check-label" for="inlineRadio1"
+                     >Petrol</label
+                  >
+               </div>
+               <div class="form-check form-check-inline">
+                  <input
+                     class="form-check-input"
+                     type="radio"
+                     name="Fuel_Type_Petrol"
+                     id="inlineRadio2"
+                     value="Diesel"
+                  />
+                  <label class="form-check-label" for="inlineRadio2"
+                     >Diesel</label
+                  >
+               </div>
+               <div class="form-check form-check-inline">
+                  <input
+                     class="form-check-input"
+                     type="radio"
+                     name="Fuel_Type_Petrol"
+                     id="inlineRadio3"
+                     value="CNG"
+                  />
+                  <label class="form-check-label" for="inlineRadio3">CNG</label>
+               </div>
+            </div>
+
+            <div class="group2">
+               <label for="">Are you?</label>
+               <br />
+               <div class="form-check form-check-inline">
+                  <input
+                     class="form-check-input"
+                     type="radio"
+                     name="Seller_Type_Individual"
+                     id="inlineRadio2"
+                     value="Dealer"
+                  />
+                  <label class="form-check-label" for="inlineRadio1"
+                     >Dealer</label
+                  >
+               </div>
+               <div class="form-check form-check-inline">
+                  <input
+                     class="form-check-input"
+                     type="radio"
+                     name="Seller_Type_Individual"
+                     id="inlineRadio2"
+                     value="Individual"
+                  />
+                  <label class="form-check-label" for="inlineRadio2"
+                     >Individual</label
+                  >
+               </div>
+            </div>
+
+            <div class="group3">
+               <label for="">Transmission type</label>
+               <br />
+               <div class="form-check form-check-inline">
+                  <input
+                     class="form-check-input"
+                     type="radio"
+                     name="Transmission_Mannual"
+                     id="inlineRadio1"
+                     value="Mannual"
+                  />
+                  <label class="form-check-label" for="inlineRadio1"
+                     >Manual</label
+                  >
+               </div>
+               <div class="form-check form-check-inline">
+                  <input
+                     class="form-check-input"
+                     type="radio"
+                     name="Transmission_Mannual"
+                     id="inlineRadio2"
+                     value="Automatic"
+                  />
+                  <label class="form-check-label" for="inlineRadio2"
+                     >Automatic</label
+                  >
+               </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+         </form>
+
+         <h2>{{ prediction_text }}</h2>
+      </section>
+   </body>
+</html>
