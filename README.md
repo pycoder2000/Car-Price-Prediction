@@ -25,11 +25,11 @@ pip install -U -r requirements.txt
 ---
 ## How to run :
 
-1. run [create_folds.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/create_folds.py) from src to create folds in the dataset.
-2. run [encode_data.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/encode_data.py) from src to encode the data using pandas dummy method and to select the features.
-3. run [model.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/model.py) to train the model and dump it using joblib at [model.pkl](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/models/DecisionTree/model.pkl)
+1. Run [create_folds.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/create_folds.py) from src to create folds in the dataset.
+2. Run [encode_data.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/encode_data.py) from src to encode the data using pandas dummy method and to select the features.
+3. Run [model.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/model.py) to train the model and dump it using joblib at [model.pkl](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/models/DecisionTree/model.pkl)
     - you can check the [model.pkl](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/models/model.pkl) also, it is trained on random forest regressor and is shown in [EDA.ipynb](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/notebooks/EDA.ipynb)
-4. run [app.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/app.py)
+4. Run [app.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/app.py)
 
 
 ## Contributing
