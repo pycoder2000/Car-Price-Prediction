@@ -1,41 +1,55 @@
-# Car Price Prediction
+# Car-Price-Prediction
 
-An app made using Flask to predict the car price using details like year of purchase, purchasing price, number of owners, etc.
+![Kaggle](https://img.shields.io/badge/Dataset-Kaggle-blue.svg) ![Python 3.6](https://img.shields.io/badge/Python-3.6-brightgreen.svg) ![Scikit-Learn](https://img.shields.io/badge/Library-ScikitLearn-orange.svg)
 
-Technique used: 
-  - Decision Tree Regressor
-  - Random Forest Regressor
----
-## Information
+This repository consists of files required for end to end implementation and deployment of Machine Learning Car Price Prediction web application created with Flask and deployed on the Heroku platform.
 
-The template used can be found on [index.html](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/templates/index.html)  
+## Table of Contents
+  * [App Link](#app-link)
+  * [About the App](#about-the-app)
+  * [Deployement on Heroku](#deployement-on-heroku)
+  * [Technologies Used](#technologies-used)
+  * [Bug / Feature Request](#bug---feature-request)
 
-The dataset used here is very small and can be found at [car data.csv](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/input/car%20data.csv)
 
----
-## Installation
+## App Link
+If you want to view the deployed model, click on the following link:<br />
+[https://allysoncaragency.herokuapp.com/](https://allysoncaragency.herokuapp.com/)
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install dependencies.
+A glimpse of the web app:
 
+![GIF](readme_resources/carpred.gif)
+
+• If you encounter this webapp as shown in the picture given below, it is occuring just because **free dynos for this particular month provided by the Heroku platform have been completely used.** You can access the webpage on 1st of the next month.
+
+• Sorry for the inconvenience.
+
+![Heroku-Error](readme_resources/application-error-heroku.png)
+
+## About the App
+The Car Price Prediction is a flask web application which predicts car prices based on given independent features like Car_Name,	Year,	Selling_Price,	Present_Price,	Kms_Driven,	Fuel_Type,	Seller_Type,	Transmission, and Owner. The dataset is available at Kaggle, and it's provided by cardekho.com. 
+
+The code is written in Python 3.6.10. If you don't have Python installed, you can find it [here](https://www.python.org/downloads/). If you are using a lower version of Python you can upgrade using the pip package, ensuring you have the latest version of pip. To install the required packages and libraries, run this command in the project directory after [cloning](https://www.howtogeek.com/451360/how-to-clone-a-github-repository/) the repository:
 ```bash
-python -m pip install -U pip setuptools
-pip install -U -r requirements.txt
+pip install -r requirements.txt
 ```
 
----
-## How to run :
+## Deployement on Heroku
+Login or signup in order to create virtual app. You can either connect your github profile or download ctl to manually to deploy this project.
 
-1. Run [create_folds.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/create_folds.py) from src to create folds in the dataset.
-2. Run [encode_data.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/encode_data.py) from src to encode the data using pandas dummy method and to select the features.
-3. Run [model.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/src/model.py) to train the model and dump it using joblib at [model.pkl](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/models/DecisionTree/model.pkl)
-    - you can check the [model.pkl](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/models/model.pkl) also, it is trained on random forest regressor and is shown in [EDA.ipynb](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/notebooks/EDA.ipynb)
-4. Run [app.py](https://github.com/pycoder2000/Car-Price-Prediction/blob/main/app.py)
+[![](https://i.imgur.com/dKmlpqX.png)](https://heroku.com)
+
+The next step would be to follow the instruction given in the [Heroku Documentation](https://devcenter.heroku.com/articles/getting-started-with-python) to deploy a web app.
+
+## Technologies Used
+
+![](https://forthebadge.com/images/badges/made-with-python.svg)
+
+[<img target="_blank" src="https://flask.palletsprojects.com/en/1.1.x/_images/flask-logo.png" width=170>](https://flask.palletsprojects.com/en/1.1.x/) [<img target="_blank" src="https://number1.co.za/wp-content/uploads/2017/10/gunicorn_logo-300x85.png" width=280>](https://gunicorn.org) [<img target="_blank" src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" width=200>](https://scikit-learn.org/stable/) 
+
+## Bug / Feature Request
+
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an [issue](https://github.com/divyansh1195/Car-Price-Prediction/issues) here by including your search query and the expected result
 
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+## Please do ⭐ the repository, if it helped you in anyway.

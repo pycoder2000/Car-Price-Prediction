@@ -1,150 +1,107 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Predictive analysis</title>
-      <link rel="stylesheet" href="style/css/styles.css" />
-      <link
-         rel="stylesheet"
-         href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-         crossorigin="anonymous"
-      />
-   </head>
-   <body>
-      <header>
-         <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-               <h1 class="display-4">Predictive analysis</h1>
-               <p class="lead">Desciption of your project</p>
-            </div>
-         </div>
-      </header>
 
-      <section class="container">
-         <form action="{{ url_for('predict')}}" method="post">
-            <div class="form-group">
-               <label for="year">Year</label>
-               <input type="number" class="form-control" name="Year" />
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction</title>
 
-            <div class="form-group">
-               <label for="price"> Showroom Price? (In Lakhs) </label>
-               <input type="number" class="form-control" name="Present_Price" />
-            </div>
 
-            <div class="form-group">
-               <label for="drive">Kilometers Drived?</label>
-               <input type="number" class="form-control" name="Kms_Driven" />
-            </div>
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-            <div class="form-group">
-               <label for="owners">No. of previous owners? (0 or 3)</label>
-               <input type="number" class="form-control" name="Owner" />
-            </div>
 
-            <!-- radio buttons -->
-            <div class="group1">
-               <label for="">Fuel Type?</label>
-               <br />
-               <div class="form-check form-check-inline">
-                  <input
-                     class="form-check-input"
-                     type="radio"
-                     name="Fuel_Type_Petrol"
-                     id="inlineRadio1"
-                     value="Petrol"
-                  />
-                  <label class="form-check-label" for="inlineRadio1"
-                     >Petrol</label
-                  >
-               </div>
-               <div class="form-check form-check-inline">
-                  <input
-                     class="form-check-input"
-                     type="radio"
-                     name="Fuel_Type_Petrol"
-                     id="inlineRadio2"
-                     value="Diesel"
-                  />
-                  <label class="form-check-label" for="inlineRadio2"
-                     >Diesel</label
-                  >
-               </div>
-               <div class="form-check form-check-inline">
-                  <input
-                     class="form-check-input"
-                     type="radio"
-                     name="Fuel_Type_Petrol"
-                     id="inlineRadio3"
-                     value="CNG"
-                  />
-                  <label class="form-check-label" for="inlineRadio3">CNG</label>
-               </div>
-            </div>
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
 
-            <div class="group2">
-               <label for="">Are you?</label>
-               <br />
-               <div class="form-check form-check-inline">
-                  <input
-                     class="form-check-input"
-                     type="radio"
-                     name="Seller_Type_Individual"
-                     id="inlineRadio2"
-                     value="Dealer"
-                  />
-                  <label class="form-check-label" for="inlineRadio1"
-                     >Dealer</label
-                  >
-               </div>
-               <div class="form-check form-check-inline">
-                  <input
-                     class="form-check-input"
-                     type="radio"
-                     name="Seller_Type_Individual"
-                     id="inlineRadio2"
-                     value="Individual"
-                  />
-                  <label class="form-check-label" for="inlineRadio2"
-                     >Individual</label
-                  >
-               </div>
-            </div>
 
-            <div class="group3">
-               <label for="">Transmission type</label>
-               <br />
-               <div class="form-check form-check-inline">
-                  <input
-                     class="form-check-input"
-                     type="radio"
-                     name="Transmission_Mannual"
-                     id="inlineRadio1"
-                     value="Mannual"
-                  />
-                  <label class="form-check-label" for="inlineRadio1"
-                     >Manual</label
-                  >
-               </div>
-               <div class="form-check form-check-inline">
-                  <input
-                     class="form-check-input"
-                     type="radio"
-                     name="Transmission_Mannual"
-                     id="inlineRadio2"
-                     value="Automatic"
-                  />
-                  <label class="form-check-label" for="inlineRadio2"
-                     >Automatic</label
-                  >
-               </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Calculate</button>
-         </form>
+</head>
 
-         <h2>{{ prediction_text }}</h2>
-      </section>
-   </body>
+<body>
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                 <a2 class="navbar-brand" href="/">ALLYSON CAR AGENCY © 2020</a2>
+                 
+        <br>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+
+    <div class="container">
+<a2>Please fill the parameters below and click on Selling Price button to check car price</a2>
+
+
+        <form action="\predict" method="post">
+       
+            <h3>Year</h3><input id="first" name="Year" placeholder="eg. like the year '2010' "type="number " >
+        <br>
+        <br>
+            <h3>Showroom Price(lakhs)</h3><input id="second" name="Present_Price" placeholder="eg. '10.45' lakhs"required="required">
+        <br>  
+        <br>  
+            <h3>Kilometers Driven</h3><input id="third" name="Kms_Driven" placeholder="eg. 10000 Km driven before"required="required">
+        <br>
+        <br>
+            <h3>Previous Owners</h3><input id="fourth" name="Owner" placeholder="0 or 1 or 2 Previous Owners" required="required">
+        <br>
+        <br>   
+            
+            <h3>Fuel Type</h3><select name="Fuel_Type_Petrol" id="fuel" required="required">
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Diesel">CNG</option>
+            </select>
+        <br>
+        <br>
+            <h3>Dealer or Individual</h3><select name="Seller_Type_Individual" id="resea" required="required">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select>
+        <br>
+        <br>
+            <h3>Transmission Type</h3><select name="Transmission_Mannual" id="research" required="required">
+                <option value="Mannual">Manual Car</option>
+                <option value="Automatic">Automatic Car</option>
+            </select>
+            
+            <br><br><button id="sub" type="submit ">Selling Price</button>
+        </form>
+        <h3>{{ prediction_text }}<h3>
+        <br>
+    </div>
+        
+
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+
+   <!-- Footer -->
+       <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/divyansh1195"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/divyanshmathur1195"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>© Divyansh Mathur 2020</p>
+       </div>
+
+
+</body>
+
 </html>

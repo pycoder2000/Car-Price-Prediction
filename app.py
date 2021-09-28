@@ -1,27 +1,25 @@
 from flask import Flask, render_template, request
+import jsonify
+import requests
+import pickle
 import numpy as np
 import sklearn
-import jsonify
-import pickle
 import joblib
-import os
-
-from src import config
-
 from sklearn.preprocessing import StandardScaler
+
 app = Flask(__name__)
-
-#model = pickle.load(open("models/DecisionTree/model.pkl", 'rb'))
-model = joblib.load("models/DecisionTree/model.pkl", 'r')
-
+model = pickle.load(open("vot_reg.pkl", "rb"))
 @app.route('/',methods=['GET'])
 def Home():
     return render_template('index.html')
 
-#standard_to = StandardScaler()
+
+standard_to = StandardScaler()
 @app.route("/predict", methods=['POST'])
 def predict():
+    
     Fuel_Type_Diesel=0
+    
     if request.method == 'POST':
         Year = int(request.form['Year'])
         Present_Price=float(request.form['Present_Price'])
@@ -45,14 +43,21 @@ def predict():
             Transmission_Mannual=1
         else:
             Transmission_Mannual=0
-        prediction=model.predict([[Present_Price,Kms_Driven,Owner,Year,Fuel_Type_Diesel,Fuel_Type_Petrol,Seller_Type_Individual,Transmission_Mannual]])
+        prediction=model.predict(np.array([[Year, 
+                                            Present_Price, 
+                                            Kms_Driven,
+                                            Owner, 
+                                            Fuel_Type_Diesel, 
+                                            Fuel_Type_Petrol, 
+                                            Seller_Type_Individual, 
+                                            Transmission_Mannual]]))
         output=round(prediction[0],2)
         if output<0:
             return render_template('index.html',prediction_texts="Sorry you cannot sell this car")
         else:
-            return render_template('index.html',prediction_text="You Can Sell The Car at {}".format(output))
+            return render_template('index.html',prediction_text="You can sell the Car at {} lakhs".format(output))
     else:
         return render_template('index.html')
 
 if __name__=="__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True)
